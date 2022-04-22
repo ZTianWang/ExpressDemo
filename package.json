@@ -1,16 +1,27 @@
 {
   "name": "expressdemo",
   "version": "1.0.0",
-  "description": "",
+  "description": "mpn i express -S",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "ZTianWang <wnwn1994@163.com>",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.17.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZTianWang/ExpressDemo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZTianWang/ExpressDemo/issues"
+  },
+  "homepage": "https://github.com/ZTianWang/ExpressDemo#readme",
+  "devDependencies": {}
 }
