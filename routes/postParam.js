@@ -41,6 +41,7 @@ postParam.use(express.json())
 postParam.post('/add',(req,res) => { 
     //接收body-parser传递的post参数
     let param = req.body
+    console.log(param);
     // res.send(param)
     // 以json格式发送响应
     res.json(param)
