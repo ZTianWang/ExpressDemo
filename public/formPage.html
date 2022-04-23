@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
 </head>
+
 <body>
     <form action="http://localhost:3000/postP/add" method="post">
         <input type="text" name="name" id="name">
         <input type="password" name="password" id="psw">
         <input type="submit" value="提交">
     </form>
+    <br />
+    
+    <input type="text" name="name" id="jsonName">
+    <input type="password" name="password" id="jsonPsw">
+    <button id="submit">提交</button>
+    <br>
+    <span id="resultSpan"></span>
+
+    <script type="text/javascript">
+        let jname = document.getElementById('jsonName')
+        let jpsw = document.getElementById('jsonPsw')
+        let btn = document.getElementById('submit')
+        let rspan = document.getElementById('resultSpan')
+        btn.addEventListener('click', () => {
+
+            // 使用fetch发送ajax请求：
+            fetch('/postP/add', {
+                method: 'post',
+                // 设置http头部的属性为json
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: jname.value,
+                    psw: jpsw.value
+                })
+            })
+                .then(res => res.json())            // 第一个then  设置请求的格式
+                .then(data => console.log(data))    // 第二个then 处理回调
+                .catch(e => console.log("Oops, error", e))  //捕获错误
+        })
+
+    </script>
 
 </body>
+
 </html>
